@@ -15,15 +15,15 @@ class LaplaceUnigramLanguageModel:
         token = datum.word
         self.unigramCounts[token] = self.unigramCounts[token] + 1
         self.total += 1
-  
+
   def score(self, sentence):
     """Takes a list of strings, returns a score of that sentence."""
     score = 0.0
     for token in sentence:
         count = self.unigramCounts[token]
-    score=(count+1)/(self.total+len(self.unigramCounts))
-    score=math.log(score)
+        x = (count+1)/(self.total+len(self.unigramCounts))
+        score += math.log(x)
     return score
 
-if __name__ == '__main__':
-  print(LaplaceUnigramLanguageModel(score))
+# if __name__ == '__main__':
+#   print(LaplaceUnigramLanguageModel(score))

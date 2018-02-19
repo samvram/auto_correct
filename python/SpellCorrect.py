@@ -38,12 +38,16 @@ class SpellCorrect:
     testData = corpus.generateTestCases()
     for sentence in testData:
       if sentence.isEmpty():
+        print('Continued')
         continue
       errorSentence = sentence.getErrorSentence()
+
       hypothesis = self.correctSentence(errorSentence)
+
       if sentence.isCorrection(hypothesis):
         numCorrect += 1
       numTotal += 1
+
     return SpellingResult(numCorrect, numTotal)
 
   def correctSentence(self, sentence):
